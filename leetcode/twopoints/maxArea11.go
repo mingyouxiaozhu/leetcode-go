@@ -11,6 +11,8 @@ package twopoints
 // 来源：力扣（LeetCode）
 // 链接：https://leetcode.cn/problems/container-with-most-water
 // 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
+
+// 快慢指针。从两边开始，选择左右较大的值不动，移动较小的那一边，指导遇到比当前较大的边界大的值
 func maxArea(height []int) int {
 	var min = func(a int, b int) int {
 		if a > b {
