@@ -49,6 +49,39 @@ func threeSumClosest(nums []int, target int) int {
 	return result
 }
 
+func threeSumClosestV1(nums []int, target int) int {
+	result, n, diff := math.MaxInt, len(nums), math.MaxInt
+	sort.Ints(nums)
+	update := func(d int, sum int) {
+		if abs(d, 0) < diff {
+			diff = d
+			result = sum
+		}
+	}
+
+	for i := 0; i < n; i++ {
+		for j, k := i+1, n-1; j < k; {
+			sum := nums[i] + nums[j] + nums[k]
+			update(abs(sum, target), sum)
+			if sum == target {
+				return sum
+			}
+			if sum > target {
+				k--
+				for k > j && nums[k] == nums[k+1] {
+					k--
+				}
+			} else {
+				j++
+				for k > j && nums[j] == nums[j-1] {
+					j++
+				}
+			}
+		}
+	}
+	return result
+}
+
 func abs(i int, j int) int {
 	res := i - j
 	if res < 0 {

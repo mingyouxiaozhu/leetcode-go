@@ -32,7 +32,7 @@ func Test_threeSumClosest(t *testing.T) {
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
-			if got := threeSumClosest(tt.args.nums, tt.args.target); got != tt.want {
+			if got := threeSumClosestV1(tt.args.nums, tt.args.target); got != tt.want {
 				t.Errorf("threeSumClosest() = %v, want %v", got, tt.want)
 			}
 		})
