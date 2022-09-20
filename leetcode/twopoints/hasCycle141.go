@@ -30,13 +30,13 @@ func hasCycle(head *ListNode) bool {
 
 func HasCycle1(head *ListNode) (bool, *ListNode, *ListNode) {
 	fast := head
-	lowst := head
+	slow := head
 	for fast != nil && fast.Next != nil {
 		fast = fast.Next.Next
-		lowst = lowst.Next
-		if fast == lowst {
-			return true, fast, lowst
+		slow = slow.Next
+		if fast == slow {
+			return true, fast, slow
 		}
 	}
-	return true, fast, lowst
+	return true, fast, slow
 }
