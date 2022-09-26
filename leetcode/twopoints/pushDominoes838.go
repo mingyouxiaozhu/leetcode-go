@@ -43,4 +43,5 @@ func pushDominoes(dominoes string) string {
 			}
 		}
 	}
+	return ""
 }
